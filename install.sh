@@ -28,14 +28,14 @@ case "$OS" in
         ;;
 esac
 
-LATEST_VERSION=$(curl -s https://api.github.com/repos/datashift-eu/escaperoom/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-DOWNLOAD_URL="https://github.com/datashift-eu/escaperoom/releases/download/${LATEST_VERSION}/${ARTIFACT}"
+DOWNLOAD_URL="https://github.com/datashift-eu/escaperoom/releases/latest/download/${ARTIFACT}"
 
 INSTALL_DIR="$HOME/.local/bin"
 mkdir -p "$INSTALL_DIR"
 
+LATEST_VERSION=$(curl -s https://api.github.com/repos/datashift-eu/escaperoom/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 echo "Downloading escaperoom ${LATEST_VERSION}..."
-curl -L "$DOWNLOAD_URL" -o "$INSTALL_DIR/escaperoom"
+curl -sSL "$DOWNLOAD_URL" -o "$INSTALL_DIR/escaperoom"
 
 chmod +x "$INSTALL_DIR/escaperoom"
 
