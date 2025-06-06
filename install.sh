@@ -35,7 +35,7 @@ INSTALL_DIR="$HOME/.local/bin"
 mkdir -p "$INSTALL_DIR"
 
 echo "Downloading escaperoom ${LATEST_VERSION}..."
-curl -L "$DOWNLOAD_URL" -o "$INSTALL_DIR/escaperoom"
+curl -sSL "$DOWNLOAD_URL" -o "$INSTALL_DIR/escaperoom"
 
 chmod +x "$INSTALL_DIR/escaperoom"
 
